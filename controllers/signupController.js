@@ -5,7 +5,7 @@ const registerUser = async (req, res) => {
     try {
         const { name, email, password } = req.body;
 
-        // ✅ 1. Input validation
+        // 1. Input validation
         if (!name || !email || !password) {
             return res.status(400).json({
                 message: "Required fields are missing",
@@ -13,7 +13,7 @@ const registerUser = async (req, res) => {
             });
         }
 
-        // ✅ 2. Check existing user
+        // 2. Check existing user
         const existingUser = await users.findOne({ email });
         if (existingUser) {
             return res.status(400).json({
@@ -22,20 +22,20 @@ const registerUser = async (req, res) => {
             });
         }
 
-        // ✅ 3. Hash password
+        // 3. Hash password
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        // ✅ 4. Create new user
+        // 4. Create new user
         const userObj = new users({
             name,
             email,
             password: hashedPassword,
         });
 
-        // ✅ 5. Save to database
+        // 5. Save to database
         await userObj.save();
 
-        // ✅ 6. Send success response
+        // 6. Send success response
         res.status(201).json({
             message: "User signup successfully",
             status: true
