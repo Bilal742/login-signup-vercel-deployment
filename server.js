@@ -15,8 +15,9 @@ app.use(cors());
 // MongoDB Connection
 connectDB();
 
+
 // Routes
-app.use("/api/users", router);
+app.use("/", router);
 
 // Test route
 app.get("/", (req, res) => {
