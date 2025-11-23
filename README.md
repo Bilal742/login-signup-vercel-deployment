@@ -10,7 +10,7 @@ This project provides a solid authentication system with proper validations, pas
 ## 🚀 Features
 
 ✅ User **Registration (Signup)** with validation  
-✅ Secure **Login Authentication**  
+✅ Secure **Login Authentication**   
 ✅ Password encryption using **bcrypt**  
 ✅ Error handling and clean API responses  
 ✅ Built with **Express.js** + **MongoDB (Mongoose)**  
